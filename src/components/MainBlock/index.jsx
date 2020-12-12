@@ -4,7 +4,11 @@ import { Cart } from '../index'
 
 function MainBlock() {
   return (
-    <div className="main">
+    <div className="main container">
+      <Cart />
+      <Cart />
+      <Cart />
+      <Cart />
       <Cart />
     </div>
   )
