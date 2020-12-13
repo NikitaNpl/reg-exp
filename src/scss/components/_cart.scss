@@ -46,6 +46,52 @@
     &.border-lightBlue {
       border-bottom: 2px solid $lightBlue-line;
     }
+
+    &-info::before,
+    &-info::after {
+      position: absolute;
+      opacity: 0;
+      visibility: hidden;
+    }
+
+    &-info::before {
+      content: attr(data-name);
+      word-break: keep-all;
+      max-width: 250px;
+      min-height: 40px;
+      font-size: 16 px;
+      padding: 10px;
+      box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.1);
+      background: $background-white;
+      border-radius: 10px;
+      bottom: 255px;
+      right: 0px;
+    }
+
+    &-info::after {
+      content: '';
+      width: 0;
+      height: 0;
+      border: 10px solid transparent;
+      border-top-color: $background-white;
+      bottom: 235px;
+      right: 21px;
+    }
+
+    &-info:hover::before,
+    &-info:hover::after {
+      opacity: 1;
+      visibility: visible;
+      transition: 0.2s ease-in-out 0.3s;
+    }
+
+    &-info:hover::before {
+      bottom: 250px;
+    }
+
+    &-info:hover::after {
+      bottom: 230px;
+    }
   }
 
   &__main {
@@ -80,6 +126,11 @@
     &-views {
       display: flex;
       align-items: center;
+      user-select: none;
+    }
+
+    &-like > svg {
+      cursor: pointer;
     }
 
     &-author {
