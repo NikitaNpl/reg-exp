@@ -1,8 +1,8 @@
 import React from 'react';
 
-import { Cart } from '../index'
+import { Cart } from '../../components/index'
 
-function MainBlock() {
+function Home() {
   return (
     <div className="main container">
       <Cart />
@@ -14,4 +14,4 @@ function MainBlock() {
   )
 }
 
-export default MainBlock;
+export default Home;
