@@ -1,15 +1,17 @@
 import React from 'react';
 
-import { Cart } from '../../components/index'
+import { Cart, CartLoadingBlock } from '../../components/index';
 
-function Home() {
+function Home({ items, isLoaded }) {
   return (
     <div className="main container">
-      <Cart />
-      <Cart />
-      <Cart />
-      <Cart />
-      <Cart />
+      {isLoaded ? items.map((item) => (
+        <Cart
+          key={`${item.id}_${item.title}`}
+          items={item}
+        />
+      )) : Array(10).fill(0).map((_, index) => <CartLoadingBlock key={index} />
+      )}
     </div>
   )
 }

@@ -1,18 +1,21 @@
 import React from 'react';
 
-import { Button } from '../index'
+import { Button, CategoriesLoadingBlock } from '../index';
 
-function Categories() {
+function Categories({ items, isLoaded }) {
+  console.log(items, isLoaded)
+
   return (
     <div className="categories container">
       <div className="categories__list">
         <ul>
-          <li className="border-red">Строки</li>
-          <li className="border-orange">Почта</li>
-          <li className="border-yellow">URL</li>
-          <li className="border-blackGreen">Цифры</li>
-          <li className="border-lightBlue">Дата и время</li>
-          <li className="border-gray">Другое</li>
+          {isLoaded ? items.map((item) => (
+            <li
+              key={`${item.id}_${item.name}`}
+              className={`border-${item.color.name}`}
+            >{item.name}</li>
+          )) : Array(6).fill(0).map((_, index) => <CategoriesLoadingBlock key={index} className="loadingBlock" />
+          )}
         </ul>
       </div>
       <div className="categories__search">

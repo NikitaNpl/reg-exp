@@ -17,6 +17,10 @@
       display: flex;
       flex-wrap: wrap;
 
+      & > .loadingBlock {
+        margin: 12px
+      }
+
       li {
         display: flex;
         flex: auto;
